@@ -1,0 +1,36 @@
+<JZML>
+<PROJECT version="5340" width="1912" height="1140" osc_target="-2" midi_target="-2" kbmouse_target="-2" skin="Pixel"/>
+<WINDOW class="JAZZINTERFACE" text="Default" x="0" y="0" width="1912" height="1140" state="1" group="0" font="tahoma,11,0" >
+<WINDOW class="Container" text="qRand" x="342" y="145" width="952" height="386" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="1596013" label="1" tabbar="1" meta="0">
+<WINDOW class="Text" text="Text" x="0" y="0" width="936" height="65" state="241" group="0" font="tahoma,14,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="1596013" content="QUANTUM RANDOM - Gets True Random numbers from the ANU Quantum Random Number Generator">
+<VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/qRand/Text/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+</WINDOW>
+<WINDOW class="Monitor" text="Incoming_Values" x="43" y="163" width="838" height="60" id="1" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="1596013" label="1" precision="0" unit="" value="1">
+<VARIABLE name="value=rVal" send="0" osc_target="0" osc_trigger="1" osc_message="/qRand/Incoming_Values/value" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<SCRIPT name="getRandomValues(OSC_ARGS)" script="decl i,arr;
+for(i=0;i<17;i++){
+		arr[i] = OSC_ARGS[i];
+		rVal[i] = arr[i];
+}" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/q/random" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+</WINDOW>
+<WINDOW class="Monitor" text="Divide_By_2" x="43" y="223" width="838" height="60" id="2" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="1596013" label="1" precision="3" unit="" value="1">
+<VARIABLE name="value=useMe" send="0" osc_target="0" osc_trigger="1" osc_message="/qRand/Divide_By_2/value" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<SCRIPT name="getRandomValues(OSC_ARGS)" script="decl i,arr;
+for(i=0;i<17;i++){
+		arr[i] = OSC_ARGS[i];
+		rVal[i] = arr[i];
+}" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/q/Rand" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+</WINDOW>
+<WINDOW class="Monitor" text="Zero_1" x="43" y="283" width="838" height="60" id="3" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="1596013" label="1" precision="3" unit="" value="1">
+<VARIABLE name="value=useMe/127" send="0" osc_target="0" osc_trigger="1" osc_message="/qRand/Zero_1/value" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<SCRIPT name="getRandomValues(OSC_ARGS)" script="decl i,arr;
+for(i=0;i<17;i++){
+		arr[i] = OSC_ARGS[i];
+		rVal[i] = arr[i];
+}" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/q/Rand" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+</WINDOW>
+<VARIABLE name="rVal=" value="0" send="1" osc_target="0" osc_trigger="1" osc_message="/qRand/rVal" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="37,128,2393" kbmouse_scale="0,1,0,1"/>
+<VARIABLE name="useMe=round(rVal/2)" send="1" osc_target="0" osc_trigger="1" osc_message="/qRand/useMe" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="-32768,15739,207" kbmouse_scale="0,1,0,1"/>
+</WINDOW>
+</WINDOW>
+</JZML>
